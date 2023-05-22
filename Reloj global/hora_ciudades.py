@@ -2,6 +2,7 @@ import tkinter as tk
 from datetime import datetime, timedelta
 from tkinter import ttk
 
+#Array que contiene las diferentes ciudades utilizadas y su diferencia de horario
 ciudades = {
     "Bogotá": -5,
     "Madrid": 2,
