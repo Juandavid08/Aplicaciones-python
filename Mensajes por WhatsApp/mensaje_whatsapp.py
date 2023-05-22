@@ -14,25 +14,32 @@ def enviar_whatsapp():
         messagebox.showwarning("Error", "Ingresa el número y el mensaje.")
 
 
-# Crear la ventana principal
+# Ventana principal
 window = tk.Tk()
 window.title("Enviar mensaje de WhatsApp")
 
-# Etiqueta y campo de entrada para el número
+window.geometry("400x300")
+
+screen_width = window.winfo_screenwidth()
+screen_height = window.winfo_screenheight()
+
+x = int((screen_width - 400) / 2)  # Centrar horizontalmente
+y = int((screen_height - 300) / 2)  # Centrar verticalmente
+
+window.geometry(f"400x300+{x}+{y}")
+
 label_numero = tk.Label(window, text="Número de teléfono:")
 label_numero.pack()
 entry_numero = tk.Entry(window)
 entry_numero.pack()
 
-# Etiqueta y campo de entrada para el mensaje
 label_mensaje = tk.Label(window, text="Mensaje:")
 label_mensaje.pack()
 entry_mensaje = tk.Entry(window)
 entry_mensaje.pack()
 
-# Botón para enviar el mensaje
+
 button_enviar = tk.Button(window, text="Enviar", command=enviar_whatsapp)
 button_enviar.pack()
 
-# Ejecutar la ventana principal
 window.mainloop()

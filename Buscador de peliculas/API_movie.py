@@ -6,6 +6,8 @@ from tkinter import ttk
 from tkinter import messagebox
 from ttkthemes import themed_tk as tkth
 
+
+#OJO esta API KEY es personal, si deseas tener una debes ingresar al sitio de TMDB y registrarte
 API_KEY = "22495c714623687580c87278cf36ebaf"
 
 def buscar_peliculas():
@@ -17,7 +19,7 @@ def buscar_peliculas():
         messagebox.showwarning("Advertencia", "Por favor, ingresa una búsqueda y selecciona una categoría.")
         return
 
-    if categoria == "Nombre":
+    if categoria == "Título":
         buscar_peliculas_por_nombre(busqueda, doblaje)
     elif categoria == "Categoría":
         id_categoria = obtener_id_categoria(busqueda, doblar(doblaje))
@@ -146,26 +148,24 @@ def doblar(doblaje):
     else:
         return "en-US"
 
-# Crear la ventana principal
-window = tkth.ThemedTk(theme="arc")  # Aplicar el tema "Arc"
+# Ventana principal
+window = tkth.ThemedTk(theme="arc") 
 window.title("Búsqueda de películas")
 style = ttk.Style()
 style.configure("EstiloBoton.TButton", foreground="blue", font=("Arial", 12), background="blue")
 
-# Etiqueta y campo de entrada para la búsqueda
+# Etiquetas
 label_busqueda = tk.Label(window, text="Búsqueda:")
 label_busqueda.grid(row=0, column=0)
 entry_busqueda = tk.Entry(window)
 entry_busqueda.grid(row=0, column=1)
 
-# Etiqueta y campo de selección para la categoría
 label_categoria = tk.Label(window, text="Filtrar por:")
 label_categoria.grid(row=1, column=0)
-categorias = ["Titulo", "Categoría", "Actor"]
+categorias = ["Título", "Categoría", "Actor"]
 combo_categorias = ttk.Combobox(window, values=categorias)
 combo_categorias.grid(row=1, column=1)
 
-# Etiqueta y campo de selección para el doblaje
 label_doblaje = tk.Label(window, text="Doblaje:")
 label_doblaje.grid(row=2, column=0)
 doblajes = ["Castellano", "Inglés", "Italiano", "Francés", "Alemán", "Japonés", "Portugués", "Coreano", "Chino", "Ruso"]
@@ -182,9 +182,7 @@ scrollbar = ttk.Scrollbar(window, orient=tk.VERTICAL, command=resultados_treevie
 scrollbar.grid(row=3, column=2, sticky="ns")
 resultados_treeview.configure(yscrollcommand=scrollbar.set)
 
-# Botón de búsqueda
 btn_buscar = ttk.Button(window, text="Buscar", style="EstiloBoton.TButton", command=buscar_peliculas)
 btn_buscar.grid(row=4, column=0, columnspan=2)
 
-# Ejecutar la ventana
 window.mainloop()
