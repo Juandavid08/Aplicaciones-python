@@ -43,8 +43,9 @@ class BankSystemGUI:
         if amount <= self.balance:
             self.balance -= amount
             self.actualizacion_balance()
-            formatted_amount = locale.format_string("%.2f", amount, grouping=True)
-            messagebox.showinfo("Retiro Exitoso", "Se ha retirado ${}".format(formatted_amount))
+            formatted_balance = locale.format_string("%d", self.balance, grouping=True)
+            formatted_amount = locale.format_string("%d", amount, grouping=True)
+            messagebox.showinfo("Retiro Exitoso", "Se ha retirado ${}, tu saldo actual es de ${}".format(formatted_amount, formatted_balance))
         else:
             formatted_amount = locale.format_string("%.2f", amount, grouping=True)
             formatted_balance = locale.format_string("%d", self.balance, grouping=True)

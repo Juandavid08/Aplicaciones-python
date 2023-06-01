@@ -3,10 +3,14 @@ import tkinter as tk
 from PIL import ImageTk, Image
 import numpy as np
 
-#OJO debes cambiar la ruta en la que está el archivo haarcascade_frontalface_default, el archivo lo puedes encontrar en el siguientelink
+#OJO debes cambiar la variable llamada URL por la ruta en la que está el archivo haarcascade_frontalface_default, el archivo lo puedes encontrar en el siguientelink
 #https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml
 
-face_cascade = cv2.CascadeClassifier('C:/Users/juand/OneDrive/Documentos/Aplicaciones-python/Detector de caras/haarcascade_frontalface_default.xml')
+
+URL = r"C:\Users\im00719\OneDrive - Alliance\Documentos\GitHub\Aplicaciones-python\Detector de caras"
+
+
+face_cascade = cv2.CascadeClassifier(URL + '\haarcascade_frontalface_default.xml')
 
 cap = cv2.VideoCapture(0)
 
