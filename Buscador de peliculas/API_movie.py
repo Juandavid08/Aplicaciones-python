@@ -125,28 +125,21 @@ def mostrar_resultados(peliculas, doblaje):
     resultados_treeview.yview_moveto(0.0)
 
 def doblar(doblaje):
-    if doblaje == "Inglés":
-        return "en"
-    elif doblaje == "Castellano":
-        return "es-ES"
-    elif doblaje == "Italiano":
-        return "it"
-    elif doblaje == "Francés":
-        return "fr"
-    elif doblaje == "Alemán":
-        return "de"
-    elif doblaje == "Japón":
-        return "ja"
-    elif doblaje == "Portugués":
-        return "pt"
-    elif doblaje == "Coreano":
-        return "ko"
-    elif doblaje == "Chino":
-        return "zh-TW"
-    elif doblaje == "Ruso":
-        return "ru"
-    else:
-        return "en-US"
+    doblajes = {
+        "Inglés": "en",
+        "Castellano": "es-ES",
+        "Italiano": "it",
+        "Francés": "fr",
+        "Alemán": "de",
+        "Japón": "ja",
+        "Portugués": "pt",
+        "Coreano": "ko",
+        "Chino": "zh-TW",
+        "Ruso": "ru"
+    }
+    
+    return doblajes.get(doblaje, "en-US")
+
 
 # Ventana principal
 window = tkth.ThemedTk(theme="arc") 
